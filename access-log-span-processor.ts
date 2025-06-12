@@ -13,7 +13,7 @@ export class AccessLogSpanProcessor implements SpanProcessor {
       console.log(
         `Incoming request started: ${span.attributes['next.span_name']}`
       );
-      console.log('span', span);
+      //   console.log('span', span);
     }
   }
   onEnd(span: ReadableSpan): void {
@@ -21,7 +21,7 @@ export class AccessLogSpanProcessor implements SpanProcessor {
       console.log(
         `Incoming request finished: ${span.attributes['next.span_name']}`
       );
-      console.log('span', span);
+      //   console.log('span', span);
     }
   }
   async forceFlush(): Promise<void> {}
