@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "local": "rm -rf .next && next build && next start",
+    "request": "TRACE_ID=$(head -c16 /dev/urandom | od -An -tx8 | tr -d ' \\n'); SPAN_ID=$(head -c8 /dev/urandom | od -An -tx8 | tr -d ' \\n'); echo \"Trace ID: $TRACE_ID\"; curl -v -H \"traceparent: 00-$TRACE_ID-$SPAN_ID-01\" -H \"tracestate: vendor=test\" http://localhost:3000/",
     "jaeger": "./jaeger-all-in-one --collector.otlp.http.host-port=:4318 --query.http-server.host-port=:16686"
   },
   "dependencies": {
